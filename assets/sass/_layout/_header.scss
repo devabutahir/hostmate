@@ -1,0 +1,342 @@
+/*----Scroll Top To Bottom Start-----*/
+#progress {
+	border: 2px solid $theme-color-1;
+	width: 40px;
+	background-color: #110230;
+	height: 60px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 33px;
+	position: fixed;
+	right: 20px;
+	z-index: 9999;
+	display: none;
+	bottom: 20px;
+	animation: updown 2s linear infinite;
+	#valiu {
+		display: block;
+		img {
+			width: 25px;
+		}
+	}
+	&:hover{
+		cursor: pointer;
+	}
+}
+@keyframes updown {
+	0%{
+		transform: translatey(-5px);
+	}
+	50%{
+		transform: translatey(5px);
+	}
+}
+/*----Scroll Top To Bottom Start-----*/
+
+/*----Preloader Start-----*/
+  #preloader {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 9999999999999;
+	  background: $theme-color-two;
+  }
+  #loader {
+	  display: block;
+	  position: relative;
+	  left: 50%;
+	  top: 50%;
+	  width: 150px;
+	  height: 150px;
+	  margin: -75px 0 0 -75px;
+	  border-radius: 50%;
+	  border: 10px solid transparent;
+	  border-top-color: $theme-color-1;
+	  -webkit-animation: spin 4s linear infinite;
+	  animation: spin 5s linear infinite;
+  }
+  #loader:before {
+	  content: "";
+	  position: absolute;
+	  top: 5px;
+	  left: 5px;
+	  right: 5px;
+	  bottom: 5px;
+	  border-radius: 50%;
+	  border: 2px solid transparent;
+	  border-top-color: #fff;
+	  -webkit-animation: spin 1s linear infinite;
+	  animation: spin 0.5s linear infinite;
+  }
+  @-webkit-keyframes spin {
+	  0%   {
+		  -webkit-transform: rotate(0deg);
+		  -ms-transform: rotate(0deg);
+		  transform: rotate(0deg);
+	  }
+	  100% {
+		  -webkit-transform: rotate(360deg);
+		  -ms-transform: rotate(360deg);
+		  transform: rotate(360deg);
+	  }
+  }
+/*----Preloader Start-----*/
+
+/*----Menu Header Start-----*/
+.header-section {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 999999;
+}
+//Main Menu area
+.menu-fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999999;
+	transition: all 0.9s;
+	background: $theme-color-3;
+}
+.head__border{
+	border-bottom: 1px solid #4d4e4f;
+}
+.header-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	transition: all 0.9s;
+	padding: 10px 0;
+	.logo-menu {
+		max-width: 190px;
+		img {
+			max-width: 100%;
+		}
+	}
+	.main-menu {
+		position: relative;
+		display: flex;
+		align-items: center;
+		.btn-wrapper {
+			margin-left: 100px;
+			.cmn--btn2 {
+				&:not(:last-child) {
+					margin-right: 10px;
+				}
+			}
+			.btn-bg{
+				background: none;
+			}
+		}
+		li {
+			transition: all 0.6s;
+			position: relative;
+			&:not(:last-child) {
+				margin-right: 30px;
+			}
+			a {
+				color: $white-color;
+				font-weight: 500;
+				font-size: 18px;
+				display: block;
+				i {
+					margin-left: 5px;
+					font-size: 19px;
+				}
+			}
+			.sub-menu {
+				display: none;
+				transform: translateY(28px);
+				@media (min-width: 992px) {
+					position: absolute;
+					top: 100%;
+					left: 0;
+					z-index: 999;
+					width: 250px;
+					transition: all 0.8s;
+					background: rgba($bg-main-section, 1);
+					display: block;
+					border-radius: 9px;
+					box-shadow: 0px 0px 66px -63px #000;
+					opacity: 0;
+					visibility: hidden;
+				}
+				li {
+					margin-right: 0;
+					&:not(:last-child){
+						margin-bottom: 5px;
+						border-bottom: 1px solid rgba(137, 133, 133, 0.5);
+					}
+					a {
+						color: $white-color;
+						text-transform: capitalize;
+						font-weight: 500;
+						font-size: 16px;
+						display: block;
+						padding: 9px 20px 15px;
+					}
+				}
+			}
+			&:hover {
+				.sub-menu {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+		.active {
+			a {
+				color: #eb566c;
+
+			}
+		}
+		.logo-menu-three {
+			width: 130px;
+			height: 85px;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+}
+@media screen and (max-width: 1199px) {
+	.header-wrapper {
+		.logo-menu {
+			max-width: 150px;
+		}
+		.main-menu {
+			.btn-wrapper {
+				margin-left: 0px;
+			}
+			li {
+				a {
+					font-size: 17px;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 991px) {
+	.menu-btn-wrapper {
+		display: none;
+	}
+	.head__border{
+		border: unset;
+	}
+	.header-wrapper {
+		.logo-menu {
+			padding: 0px 0px;
+		}
+	}
+	.main-menu {
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		display: inline !important;
+		left: 0;
+		z-index: 999;
+		padding: 15px 15px;
+		background: $theme-color-3;
+		transition: all 2s !important;
+		transform-origin: top;
+		max-height: calc(100vh - 130px);
+		overflow-y: auto;
+		overflow-x: hidden;
+		&:not(.active) {
+			display: none !important;
+			transition: all 2s;
+		}
+		li {
+			width: 100%;
+			&:not(:last-child){
+				margin-bottom: 8px;
+			}
+			a{
+				background: linear-gradient(90deg, #eb566c 0%, #b7256e 100%);
+				padding: 12px 20px 14px;
+				border-radius: 5px;
+			}
+		}
+		.active {
+			a {
+				color: $white-color !important;
+			}
+		}
+	}
+	.btn-wrapper{
+		.cmn--btn2::before,::after{
+			border: 0;
+		}
+		.cmn--btn2{
+			width: 50%;
+		}
+		.cmn--btn{
+			width: 50%;
+		}
+	}
+	.header-bar {
+		position: relative;
+		width: 30px;
+		height: 20px;
+		span {
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			display: inline-block;
+			transition: all 0.3s;
+			left: 0;
+			background: $white-color;
+			&:first-child {
+				top: 0;
+				background: $white-color;
+			}
+			&:nth-child(2) {
+				top: 44%;
+				background: $white-color;
+			}
+			&:last-child {
+				bottom: 0;
+				background: $white-color;
+			}
+		}
+		&.active {
+			span {
+				&:first-child {
+					transform: rotate(45deg) translate(3px, 9px);
+				}
+				&:nth-child(2) {
+					opacity: 0;
+				}
+				&:last-child {
+					transform: rotate(-45deg) translate(3px, -9px);
+				}
+			}
+		}
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	.header-wrapper .main-menu li .sub-menu {
+		position: relative;
+		transform: translateY(0px);
+		padding: 10px 0 3px;
+		li {
+			a {
+				display: block;
+				background: transparent;
+				color: #fff;
+				padding: 10px 20px 9px !important;
+			}
+		}
+	}
+	.header-wrapper .main-menu li .sub-menu li a {
+		padding: 0px 0;
+	}
+}
+/*----Menu Header Start-----*/
